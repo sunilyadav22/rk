@@ -1,0 +1,138 @@
+.footer {
+  background-color: var(--bs-dark-rgb);
+  color: #fff;
+  padding-top: 50px;
+}
+
+.footer a:hover {
+  color: var(--c-primary);
+}
+
+.footer-bootom {
+  background-color: #0000003d;
+  text-align: center;
+  padding: 17px 12px;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Poppins";
+  margin-top: 50px;
+}
+
+.footer-bootom p {
+  margin-bottom: 0;
+  color: #ffffff78;
+}
+
+.footer-bootom a {
+  color: var(--c-primary);
+  opacity: 1;
+}
+
+.footer h5 {
+  font-weight: 600;
+  margin-bottom: 28px;
+}
+
+.footer .menu li > a {
+  font-size: 16px;
+  font-family: "Poppins";
+  transition: 0.3s;
+  font-weight: 300;
+}
+
+.footer .row {
+  justify-content: space-between;
+}
+
+.footer .menu {
+  display: grid;
+  grid-template-rows: repeat(4, auto);
+  grid-auto-flow: column;
+  gap: 20px 10px;
+}
+
+.footer .menu li > a:hover {
+  text-decoration: none;
+}
+
+.footer-logo img {
+  max-width: 90px;
+  height: auto;
+  width: 100%;
+}
+
+.footer-logo {
+  padding-top: 58px;
+}
+
+.social-links .menu {
+  display: flex;
+  grid-gap: 15px;
+  flex-wrap: wrap;
+}
+
+.social-links .menu li a {
+  border-radius: 50%;
+  border: 1px solid #fff;
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+  transition: 0.3s;
+}
+
+.social-links .menu li a:hover {
+  color: #fff;
+  background-color: var(--c-primary);
+  border-color: var(--c-primary);
+}
+
+.footer .menu li.current-menu-item > a {
+  color: var(--c-primary);
+}
+
+.social-links .menu li a > img {
+  height: 18px;
+}
+
+
+.footer .social-links .footer-none {
+  display: none;
+}
+
+
+@media (min-width: 991px) {
+  .quick-links {
+    width: 36%;
+  }
+}
+
+@media (max-width: 1400px) {
+  .footer-bootom {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 991px) {
+  .footer h5 {
+    font-size: 20px;
+  }
+
+  .footer .row {
+    --bs-gutter-y: 32px;
+  }
+  .footer h5 {
+    margin-bottom: 17px;
+  }
+  .footer .menu {
+    gap: 12px 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer-logo {
+    padding-top: 0;
+  }
+}

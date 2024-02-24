@@ -188,7 +188,7 @@ function enqueue_custom_styles() {
         wp_enqueue_style( 'courses', get_template_directory_uri() . '/assets/css/courses.css' );
         wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/css/footer.css' );
         wp_enqueue_style( 'header', get_template_directory_uri() . '/assets/css/header.css' );
-        wp_enqueue_style( 'homepage', get_template_directory_uri() . '/assets/css/homepage.css' );
+        wp_enqueue_style( 'homepage', get_template_directory_uri() . '/assets/css/homepag.css' );
         wp_enqueue_style( 'fonts', get_template_directory_uri() . '/assets/css/fonts.css' );
   
 		// Enqueue jQuery

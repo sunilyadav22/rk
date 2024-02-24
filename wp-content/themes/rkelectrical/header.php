@@ -115,4 +115,3 @@
         </header>
 	<!-- #masthead -->
     
-<div style='height: 100vh;background-image:url("https://geologica.saydev.co.uk/wp-content/uploads/2023/12/Carbon-Capture-and-Storage-Training-Course.jpg")'></div>

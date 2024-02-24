@@ -84,7 +84,7 @@ jQuery(document).ready(function ($) {
     $('.slick-slider-banner').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: false,
+        autoplay: true,
         autoplaySpeed: 2000,
         adaptiveHeight: true,
         dots: true,
@@ -94,7 +94,6 @@ jQuery(document).ready(function ($) {
         cssEase: 'linear',
         arrows: false,
     });
-
 
     // testimonial slider 
     var rev = $('#testimonial_scroll');

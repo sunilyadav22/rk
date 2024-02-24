@@ -90,10 +90,7 @@
             <nav class="bottom-header navbar navbar-expand-lg navbar-light py-0">
 				<div class="container">
 					<div class="bottom-header-logo">
-						<?php
-						// Display the site logo with a link to the home page
-						the_custom_logo();
-						?>
+                        <a href="<?php echo site_url();?>" class="custom-logo-link" rel="home" itemprop="url"><img src="<?php echo get_theme_mod( 'your_theme_hover_logo' ); ?>" class="custom-logo" alt="RK Electronic" itemprop="logo" decoding="async"></a>
 					</div>
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<?php

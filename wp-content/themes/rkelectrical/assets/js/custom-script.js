@@ -84,8 +84,8 @@ jQuery(document).ready(function ($) {
     $('.slick-slider-banner').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 2000,
+        autoplay: false,
+        autoplaySpeed: 8000,
         adaptiveHeight: true,
         dots: true,
         infinite: true,

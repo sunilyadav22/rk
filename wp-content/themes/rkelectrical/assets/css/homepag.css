@@ -11,6 +11,27 @@
   height: 100vh;
   align-items: center;
   padding-bottom: 80px;
+  z-index: 0 !important;
+}
+
+
+.bg-banner {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.banner-slides::after{
+content: "";
+position: absolute;
+inset: 0;
+z-index: -2;
+background-color: #000;
+opacity: 0.3;
 }
 
 .banner-slides .banner-slide-text {

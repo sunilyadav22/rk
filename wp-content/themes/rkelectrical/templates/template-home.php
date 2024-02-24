@@ -7,7 +7,8 @@ get_header();
  
         <!-- Banner Section -->
         <section class="banner-slider slick-slider-banner">
-            <div class="banner-slides" style='background-image: url("https://geologica.saydev.co.uk/wp-content/uploads/2023/12/Carbon-Capture-and-Storage-Training-Course.jpg")'>
+            <div class="banner-slides">
+              <img src="https://geologica.saydev.co.uk/wp-content/uploads/2023/12/Carbon-Capture-and-Storage-Training-Course.jpg" alt="" class="bg-banner">
                 <div class="container">
                     <div class="banner-slide-text">
                         <h2 class="text-uppercase">World-class training for the modern energy industry</h2>
@@ -22,7 +23,8 @@ get_header();
                     </div>
                 </div>
             </div>
-            <div class="banner-slides" style='background-image: url("https://geologica.saydev.co.uk/wp-content/uploads/2023/12/Carbon-Capture-and-Storage-Training-Course.jpg")'>
+            <div class="banner-slides">
+              <img src="https://geologica.saydev.co.uk/wp-content/uploads/2023/12/Carbon-Capture-and-Storage-Training-Course.jpg" alt="" class="bg-banner">
                 <div class="container">
                     <div class="banner-slide-text">
                         <h2 class="text-uppercase">Women in Energy Field Experience</h2>
@@ -36,7 +38,8 @@ get_header();
                     </div>
                 </div>
             </div>
-            <div class="banner-slides" style='background-image: url("https://geologica.saydev.co.uk/wp-content/uploads/2023/12/Carbon-Capture-and-Storage-Training-Course.jpg")'>
+            <div class="banner-slides">
+              <img src="https://geologica.saydev.co.uk/wp-content/uploads/2023/12/Carbon-Capture-and-Storage-Training-Course.jpg" alt="" class="bg-banner">
                 <div class="container">
                     <div class="banner-slide-text">
                         <h2 class="text-uppercase">Customized training courses and programs</h2>
@@ -51,7 +54,8 @@ get_header();
                     </div>
                 </div>
             </div>
-            <div class="banner-slides" style='background-image: url("https://geologica.saydev.co.uk/wp-content/uploads/2023/12/Carbon-Capture-and-Storage-Training-Course.jpg")'>
+            <div class="banner-slides">
+              <img src="https://geologica.saydev.co.uk/wp-content/uploads/2023/12/Carbon-Capture-and-Storage-Training-Course.jpg" alt="" class="bg-banner">
                 <div class="container">
                     <div class="banner-slide-text">
                         <h2 class="text-uppercase">World-class training for the modern energy industry</h2>

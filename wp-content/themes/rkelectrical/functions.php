@@ -204,3 +204,19 @@ function enqueue_custom_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'enqueue_custom_styles' );
 
+
+
+// secondary logo 
+function your_theme_customizer_setting($wp_customize) {
+	// add a setting 
+		$wp_customize->add_setting('your_theme_hover_logo');
+	// Add a control to upload the hover logo
+		$wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'your_theme_hover_logo', array(
+			'label' => 'Sticky header logo',
+			'section' => 'title_tagline', //this is the section where the custom-logo from WordPress is
+			'settings' => 'your_theme_hover_logo',
+			'priority' => 8 // show it just below the custom-logo
+		)));
+	}
+	
+	add_action('customize_register', 'your_theme_customizer_setting');

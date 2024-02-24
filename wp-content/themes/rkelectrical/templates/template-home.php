@@ -4,5 +4,7 @@ Template Name: Home
 */
 get_header();
 ?>
-<h1>Home page</h1>
-<?php //get_footer();?>
+  <!-- Banner Section -->
+       <h2>Home page</h2>
+
+<?php get_footer();?>

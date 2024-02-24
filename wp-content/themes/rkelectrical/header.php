@@ -99,10 +99,12 @@
 						<?php
 						// Display the WordPress navigation menu with the "header-menu" location
 						wp_nav_menu(array(
-							'theme_location' => 'menu-2',
+							// 'theme_location' => 'menu-2',
+                            'menu' => 'main menu',
 							'menu_class' => 'navbar-nav',
-							'menu_id' => 'menu-header-menu', // Add menu_id parameter
-							'container' => false
+							// 'menu_id' => 'menu-header-menu', // Add menu_id parameter
+							'container' => false,
+                            'theme_location' => 'max_mega_menu_1',
 						));
 						?>
 						<!-- Add other dynamic content here -->
@@ -112,3 +114,5 @@
 
         </header>
 	<!-- #masthead -->
+    
+<div style='height: 100vh;background-image:url("https://geologica.saydev.co.uk/wp-content/uploads/2023/12/Carbon-Capture-and-Storage-Training-Course.jpg")'></div>

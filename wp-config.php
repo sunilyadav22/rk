@@ -20,7 +20,7 @@
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'rkelectrical' );
+define( 'DB_NAME', 'ekelectrical' );
 
 /** Database username */
 define( 'DB_USER', 'root' );
@@ -67,6 +67,7 @@ define( 'NONCE_SALT',       'ZI/PO?(It)@5}cjhT15mXbn~)OXYFXM rOrGxHqKbU1c!-&>f<0
  */
 $table_prefix = 'rk_';
 
+
 /**
  * For developers: WordPress debugging mode.
  *
@@ -79,7 +80,7 @@ $table_prefix = 'rk_';
  *
  * @link https://wordpress.org/documentation/article/debugging-in-wordpress/
  */
-define( 'WP_DEBUG', false );
+define( 'WP_DEBUG', true );
 
 /* Add any custom values between this line and the "stop editing" line. */
 
@@ -94,3 +95,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
+
+

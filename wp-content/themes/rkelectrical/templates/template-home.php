@@ -7,65 +7,53 @@ get_header();
  
         <!-- Banner Section -->
         <section class="banner-slider slick-slider-banner">
-            <div class="banner-slides" style='background-image: url("https://geologica.saydev.co.uk/wp-content/uploads/2023/12/Carbon-Capture-and-Storage-Training-Course.jpg")'>
-                <div class="container">
-                    <div class="banner-slide-text">
-                        <h2 class="text-uppercase">World-class training for the modern energy industry</h2>
-                        <div class="fonts-1 text-wrapper">
-                            <!-- wp:paragraph -->
-                            <p>GeoLogica delivers high-quality training, led by globally-recognised experts, addressing
-                                current and future energy systems.</p>
-                            <!-- /wp:paragraph -->
+
+        <?php
+            $args = array(
+                'post_type' => 'hero_banner',
+                'post_status'=> 'publish',
+                'order'=> 'DESC',
+                'posts_per_page' => 3, 
+            );
+
+            $query = new WP_Query($args);
+
+            if ($query->have_posts()) {
+                while ($query->have_posts()) {
+                    $query->the_post();
+
+                    // Get the featured image URL
+                    $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+
+                    // Get the alt text of the featured image
+                    $alt_text = get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true);
+
+                    // Output the post title, featured image URL, and alt text
+                    // echo '<h2>' . get_the_title() . '</h2>';
+                    // echo '<img src="' . esc_url($featured_image_url) . '" alt="' . esc_attr($alt_text) . '">';
+
+                    ?>
+                    <div class="banner-slides" style='background-image: url("<?php echo esc_url($featured_image_url);?>")'>
+                        <div class="container">
+                            <div class="banner-slide-text">
+                                <h2 class="text-uppercase"><?php echo get_the_title();?></h2>
+                                <div class="fonts-1 text-wrapper">
+                                    <!-- wp:paragraph -->
+                                    <!-- <p>GeoLogica delivers high-quality training, led by globally-recognised experts, addressing
+                                        current and future energy systems.</p> -->
+                                    <!-- /wp:paragraph -->
+                                </div>
+                                <!-- <a class="btn tbtn-primary" href="https://geologica.saydev.co.uk/customized-training/"
+                                    target="_self" tabindex="0">More info</a> -->
+                            </div>
                         </div>
-                        <a class="btn tbtn-primary" href="https://geologica.saydev.co.uk/customized-training/"
-                            target="_self" tabindex="0">More info</a>
                     </div>
-                </div>
-            </div>
-            <div class="banner-slides" style='background-image: url("https://geologica.saydev.co.uk/wp-content/uploads/2023/12/Carbon-Capture-and-Storage-Training-Course.jpg")'>
-                <div class="container">
-                    <div class="banner-slide-text">
-                        <h2 class="text-uppercase">Women in Energy Field Experience</h2>
-                        <div class="fonts-1 text-wrapper">
-                            <!-- wp:paragraph -->
-                            <p>Aimed exclusively at women working in the energy industry</p>
-                            <!-- /wp:paragraph -->
-                        </div>
-                        <a class="btn tbtn-primary" href="https://geologica.saydev.co.uk/contact-us/" target="_self"
-                            tabindex="-1">Contact Us</a>
-                    </div>
-                </div>
-            </div>
-            <div class="banner-slides" style='background-image: url("https://geologica.saydev.co.uk/wp-content/uploads/2023/12/Carbon-Capture-and-Storage-Training-Course.jpg")'>
-                <div class="container">
-                    <div class="banner-slide-text">
-                        <h2 class="text-uppercase">Customized training courses and programs</h2>
-                        <div class="fonts-1 text-wrapper">
-                            <!-- wp:paragraph -->
-                            <p>GeoLogica can develop courses to your specifications. Get the training you want, where
-                                you want it, at a time that works for you.</p>
-                            <!-- /wp:paragraph -->
-                        </div>
-                        <a class="btn tbtn-primary" href="https://geologica.saydev.co.uk/contact-us/" target="_self"
-                            tabindex="-1">Contact Us</a>
-                    </div>
-                </div>
-            </div>
-            <div class="banner-slides" style='background-image: url("https://geologica.saydev.co.uk/wp-content/uploads/2023/12/Carbon-Capture-and-Storage-Training-Course.jpg")'>
-                <div class="container">
-                    <div class="banner-slide-text">
-                        <h2 class="text-uppercase">World-class training for the modern energy industry</h2>
-                        <div class="fonts-1 text-wrapper">
-                            <!-- wp:paragraph -->
-                            <p>GeoLogica delivers high-quality training, led by globally-recognised experts, addressing
-                                current and future energy systems.</p>
-                            <!-- /wp:paragraph -->
-                        </div>
-                        <a class="btn tbtn-primary" href="https://geologica.saydev.co.uk/contact-us/" target="_self"
-                            tabindex="-1">Contact Us</a>
-                    </div>
-                </div>
-            </div>
+                    <?php 
+                    // You can output other post content here if needed
+                }
+                wp_reset_postdata(); // Restore original post data
+            }
+            ?>
         </section>
 
         <!-- end - Banner Section -->

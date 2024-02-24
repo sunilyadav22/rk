@@ -35,8 +35,8 @@ opacity: 0.3;
 }
 
 .banner-slides .banner-slide-text {
-  background-color: #00000080;
-  color: #fff;
+  background-color: #ffffffba;
+  /* color: #000; */
   max-width: 949px;
   padding: 40px 72px 40px 40px;
   border-left: 8px solid var(--c-primary);

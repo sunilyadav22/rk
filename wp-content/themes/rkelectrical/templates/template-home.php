@@ -21,31 +21,14 @@ get_header();
             if ($query->have_posts()) {
                 while ($query->have_posts()) {
                     $query->the_post();
-
-                    // Get the featured image URL
                     $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
-
-                    // Get the alt text of the featured image
                     $alt_text = get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true);
-
-                    // Output the post title, featured image URL, and alt text
-                    // echo '<h2>' . get_the_title() . '</h2>';
-                    // echo '<img src="' . esc_url($featured_image_url) . '" alt="' . esc_attr($alt_text) . '">';
-
                     ?>
                     <div class="banner-slides">
-                    <img src="<?php echo esc_url($featured_image_url);?>" alt="" class="bg-banner">
+                    <img src="<?php echo esc_url($featured_image_url);?>" alt="<?php echo $alt_text;?>" class="bg-banner">
                         <div class="container">
                             <div class="banner-slide-text">
-                                <h2 class="text-uppercase"><?php echo get_the_title();?></h2>
-                                <div class="fonts-1 text-wrapper">
-                                    <!-- wp:paragraph -->
-                                    <!-- <p>GeoLogica delivers high-quality training, led by globally-recognised experts, addressing
-                                        current and future energy systems.</p> -->
-                                    <!-- /wp:paragraph -->
-                                </div>
-                                <!-- <a class="btn tbtn-primary" href="https://geologica.saydev.co.uk/customized-training/"
-                                    target="_self" tabindex="0">More info</a> -->
+                                <h2 class="text-uppercase"><?php echo get_the_title();?></h2>s
                             </div>
                         </div>
                     </div>
@@ -60,146 +43,56 @@ get_header();
         <!-- end - Banner Section -->
         <!--************** product section start -->
         <section class="sp-t sp-b upcoming-sec left-bg to-right-bg position position-relative">
-            <h2 class="bg-heading">Courses</h2>
             <div class="container">
                 <div class="sec-head">
                     <div class="head-wrapper">
-                        <h5 class="head-line c-primary">Courses</h5>
-                        <h2 class="">Upcoming Courses</h2>
+                        <h5 class="head-line c-primary">Thermal and Cable Solutions</h5>
+                        <h2 class="">Products</h2>
                     </div>
                     <a class="btn tbtn-secondary" href="/schedule/" title="Explore More">
                         Explore More </a>
                 </div>
                 <div class="courses-posts-row p-0">
                     <div class="courses-posts-slider slider-wrapper">
-                        <div class="course-post-wrapper scheduled-post-wrapper">
+
+                    <?php
+                        $args = array(
+                            'post_type' => 'base_products',
+                            'post_status'=> 'publish',
+                            'order'=> 'DESC',
+                            'posts_per_page' => -1, 
+                        );
+
+                        $query = new WP_Query($args);
+
+                        if ($query->have_posts()) {
+                            while ($query->have_posts()) {
+                                $query->the_post();
+                                $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+                       $alt_text = get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true);
+                    ?>
+                            <div class="course-post-wrapper scheduled-post-wrapper">
                             <div>
                                 <a href="https://geologica.saydev.co.uk/courses/transition-skills-from-oil-and-gas-to-geothermal-e573/"
                                     class="image-ratio" title="Transition Skills: From Oil and Gas to Geothermal (E573)"
                                     tabindex="-1">
                                     <img width="640" height="427"
-                                        src="assets/images/ceramic-room-heater-rod-500x500.png">
+                                        src="<?php echo $featured_image_url;?>" alt="<php echo $alt_text;?>">
                                 </a>
                                 <div class="course-post-content">
-                                    <div class="date"><span class="date-icon"><img src="assets/images/calendar-Copy.svg"
-                                                alt="Calendar"></span>10 - 12 Jun 2024</div>
-                                    <div class="courses-author">
-                                        <div class="courses-author-wrapper" title="Houston"><span
-                                                class="author-icon"><img src="assets/images/location-pin1-1.svg"
-                                                    alt="Location"></span><span class="author-title">Houston</span>
-                                        </div>
-                                        <div class="courses-author-wrapper" title="Malcolm Ross"><span
-                                                class="author-icon"><img src="assets/images/teacher-1.svg"
-                                                    alt="Tutors"></span><span class="author-title">Malcolm
-                                                Ross</span></div>
-                                    </div>
-                                    <h4>Transition Skills: From Oil and Gas to Geothermal (E573)</h4>
-                                    <div class="price-wrapper c-primary"><span class="price-icon"><img
-                                                src="assets/images/Ticket-1.svg" alt="Price"></span>
-                                        <div class="price c-primary"><b>USD $3,000.00</b> excl VAT</div>
-                                    </div>
-                                    <a href="https://geologica.arlo.co/us/register?sgid=775cdca638104ad78d8d283e9fe3ab7d"
+                                    <h4><?php echo get_the_title();?></h4>
+                                    <p><?php echo wp_trim_words(get_the_excerpt(), 20); ?></p>
+                                    <a href="<?php echo the_permalink();?>"
                                         class="btn tbtn-secondary" title="Register" tabindex="-1">Register</a>
                                 </div>
                             </div>
 
                         </div>
-                        <div class="course-post-wrapper scheduled-post-wrapper">
-                            <div>
-                                <a href="https://geologica.saydev.co.uk/courses/transition-skills-from-oil-and-gas-to-geothermal-e573/"
-                                    class="image-ratio" title="Transition Skills: From Oil and Gas to Geothermal (E573)"
-                                    tabindex="-1">
-                                    <img width="640" height="427"
-                                        src="assets/images/ceramic-room-heater-rod-500x500.png">
-                                </a>
-                                <div class="course-post-content">
-                                    <div class="date"><span class="date-icon"><img src="assets/images/calendar-Copy.svg"
-                                                alt="Calendar"></span>10 - 12 Jun 2024</div>
-                                    <div class="courses-author">
-                                        <div class="courses-author-wrapper" title="Houston"><span
-                                                class="author-icon"><img src="assets/images/location-pin1-1.svg"
-                                                    alt="Location"></span><span class="author-title">Houston</span>
-                                        </div>
-                                        <div class="courses-author-wrapper" title="Malcolm Ross"><span
-                                                class="author-icon"><img src="assets/images/teacher-1.svg"
-                                                    alt="Tutors"></span><span class="author-title">Malcolm
-                                                Ross</span></div>
-                                    </div>
-                                    <h4>Transition Skills: From Oil and Gas to Geothermal (E573)</h4>
-                                    <div class="price-wrapper c-primary"><span class="price-icon"><img
-                                                src="assets/images/Ticket-1.svg" alt="Price"></span>
-                                        <div class="price c-primary"><b>USD $3,000.00</b> excl VAT</div>
-                                    </div>
-                                    <a href="https://geologica.arlo.co/us/register?sgid=775cdca638104ad78d8d283e9fe3ab7d"
-                                        class="btn tbtn-secondary" title="Register" tabindex="-1">Register</a>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="course-post-wrapper scheduled-post-wrapper">
-                            <div>
-                                <a href="https://geologica.saydev.co.uk/courses/transition-skills-from-oil-and-gas-to-geothermal-e573/"
-                                    class="image-ratio" title="Transition Skills: From Oil and Gas to Geothermal (E573)"
-                                    tabindex="-1">
-                                    <img width="640" height="427"
-                                        src="assets/images/ceramic-room-heater-rod-500x500.png">
-                                </a>
-                                <div class="course-post-content">
-                                    <div class="date"><span class="date-icon"><img src="assets/images/calendar-Copy.svg"
-                                                alt="Calendar"></span>10 - 12 Jun 2024</div>
-                                    <div class="courses-author">
-                                        <div class="courses-author-wrapper" title="Houston"><span
-                                                class="author-icon"><img src="assets/images/location-pin1-1.svg"
-                                                    alt="Location"></span><span class="author-title">Houston</span>
-                                        </div>
-                                        <div class="courses-author-wrapper" title="Malcolm Ross"><span
-                                                class="author-icon"><img src="assets/images/teacher-1.svg"
-                                                    alt="Tutors"></span><span class="author-title">Malcolm
-                                                Ross</span></div>
-                                    </div>
-                                    <h4>Transition Skills: From Oil and Gas to Geothermal (E573)</h4>
-                                    <div class="price-wrapper c-primary"><span class="price-icon"><img
-                                                src="assets/images/Ticket-1.svg" alt="Price"></span>
-                                        <div class="price c-primary"><b>USD $3,000.00</b> excl VAT</div>
-                                    </div>
-                                    <a href="https://geologica.arlo.co/us/register?sgid=775cdca638104ad78d8d283e9fe3ab7d"
-                                        class="btn tbtn-secondary" title="Register" tabindex="-1">Register</a>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="course-post-wrapper scheduled-post-wrapper">
-                            <div>
-                                <a href="https://geologica.saydev.co.uk/courses/transition-skills-from-oil-and-gas-to-geothermal-e573/"
-                                    class="image-ratio" title="Transition Skills: From Oil and Gas to Geothermal (E573)"
-                                    tabindex="-1">
-                                    <img width="640" height="427"
-                                        src="assets/images/ceramic-room-heater-rod-500x500.png">
-                                </a>
-                                <div class="course-post-content">
-                                    <div class="date"><span class="date-icon"><img src="assets/images/calendar-Copy.svg"
-                                                alt="Calendar"></span>10 - 12 Jun 2024</div>
-                                    <div class="courses-author">
-                                        <div class="courses-author-wrapper" title="Houston"><span
-                                                class="author-icon"><img src="assets/images/location-pin1-1.svg"
-                                                    alt="Location"></span><span class="author-title">Houston</span>
-                                        </div>
-                                        <div class="courses-author-wrapper" title="Malcolm Ross"><span
-                                                class="author-icon"><img src="assets/images/teacher-1.svg"
-                                                    alt="Tutors"></span><span class="author-title">Malcolm
-                                                Ross</span></div>
-                                    </div>
-                                    <h4>Transition Skills: From Oil and Gas to Geothermal (E573)</h4>
-                                    <div class="price-wrapper c-primary"><span class="price-icon"><img
-                                                src="assets/images/Ticket-1.svg" alt="Price"></span>
-                                        <div class="price c-primary"><b>USD $3,000.00</b> excl VAT</div>
-                                    </div>
-                                    <a href="https://geologica.arlo.co/us/register?sgid=775cdca638104ad78d8d283e9fe3ab7d"
-                                        class="btn tbtn-secondary" title="Register" tabindex="-1">Register</a>
-                                </div>
-                            </div>
-
-                        </div>
+                        <?php 
+                                // You can output other post content here if needed
+                            }
+                            wp_reset_postdata(); // Restore original post data
+                        }?>
 
                     </div>
                 </div>
@@ -209,13 +102,13 @@ get_header();
 
         <!--**************  catagory section start  -->
         <section class="sp-t sp-b position-relative discipline-sec bg-tdark" id="discipline-sec">
-            <h2 class="bg-heading">DISCIPLINES</h2>
+            <h2 class="bg-heading">RK Electrical</h2>
 
             <div class="container">
                 <div class="sec-head">
                     <div class="head-wrapper">
-                        <h5 class="head-line text-white">DISCIPLINES</h5>
-                        <h2>SUBJECT DISCIPLINES</h2>
+                        <h5 class="head-line text-white">Heaters</h5>
+                        <h2>Heaters Categories</h2>
                     </div>
 
                     <a class="btn tbtn-secondary btn-white-border" href="https://geologica.saydev.co.uk/course-library/"
@@ -225,221 +118,38 @@ get_header();
 
                 <div class="row discipline-row">
 
-                    <div class="discipline-content">
-                        <a href="/course-library/?filters=basin-analysis" title="Basin Analysis">
+                <?php
+                    // Get the terms for the 'base_product_category' taxonomy
+                    $terms = get_terms(array(
+                        'taxonomy' => 'base_product_category', // Replace 'base_product_category' with the name of your taxonomy
+                        'hide_empty' => false, // Set to true if you want to hide empty terms
+                    ));
+
+                    // Check if any terms were found
+                    if (!empty($terms) && !is_wp_error($terms)) {
+                        // Loop through each term
+                        foreach ($terms as $term) {
+                            // Output the term name and other relevant data
+                            $category_acf_value = get_field('heater_category_icon', 'category_' . $term->term_id); // Replace 'base_product_category' with your ACF field name
+                        //    echo '<pre>';print_r($category_acf_value['url']);
+                            // You can access more properties like term description, count, etc., if needed
+                        ?>
+                         <div class="discipline-content">
+                        <a href="<?php echo $term->slug?>" title="<?php echo $term->name?>">
                             <div class="image">
-                                <img src="https://geologica.saydev.co.uk/wp-content/uploads/2024/01/geophysics.svg"
-                                    alt="">
-                                <img class="hover" src="assets/images/geophysics-1.svg" alt="">
+                                <img src="<?php echo $category_acf_value['url']?>"
+                                    alt="<?php echo $category_acf_value['alt']?>">
+                                <img class="hover" src="<?php echo $category_acf_value['url']?>" alt="<?php echo $category_acf_value['alt']?>">
                             </div>
 
-                            <h5>Basin Analysis</h5>
+                            <h5><?php echo $term->name;?></h5>
                         </a>
                     </div>
-
-                    <div class="discipline-content">
-                        <a href="/course-library/?filters=carbon-capture-and-storage"
-                            title="Carbon Capture and Storage">
-                            <div class="image">
-                                <img src="https://geologica.saydev.co.uk/wp-content/uploads/2024/01/Carbon-Capture-and-Storage.svg"
-                                    alt="">
-                                <img class="hover" src="assets/images/geophysics-1.svg" alt="">
-                            </div>
-
-                            <h5>Carbon Capture and Storage</h5>
-                        </a>
-                    </div>
-
-                    <div class="discipline-content">
-                        <a href="/course-library/?filters=climate" title="Climate">
-                            <div class="image">
-                                <img src="https://geologica.saydev.co.uk/wp-content/uploads/2024/01/Evaluation-Methods.svg"
-                                    alt="">
-                                <img class="hover" src="assets/images/geophysics-1.svg" alt="">
-                            </div>
-
-                            <h5>Climate</h5>
-                        </a>
-                    </div>
-
-                    <div class="discipline-content">
-                        <a href="/course-library/?filters=critical-minerals" title="Critical Minerals">
-                            <div class="image">
-                                <img src="https://geologica.saydev.co.uk/wp-content/uploads/2024/01/Critical-Minerals.svg"
-                                    alt="">
-                                <img class="hover" src="assets/images/geophysics-1.svg" alt="">
-                            </div>
-
-                            <h5>Critical Minerals</h5>
-                        </a>
-                    </div>
-
-                    <div class="discipline-content">
-                        <a href="/course-library/?filters=depositional-systems" title="Depositional Systems">
-                            <div class="image">
-                                <img src="https://geologica.saydev.co.uk/wp-content/uploads/2024/01/Depositional-Systems.svg"
-                                    alt="">
-                                <img class="hover" src="assets/images/geophysics-1.svg" alt="">
-                            </div>
-
-                            <h5>Depositional Systems</h5>
-                        </a>
-                    </div>
-
-                    <div class="discipline-content">
-                        <a href="/course-library/?filters=evaluation-methods" title="Evaluation Methods">
-                            <div class="image">
-                                <img src="https://geologica.saydev.co.uk/wp-content/uploads/2024/01/Evaluation-Methods.svg"
-                                    alt="">
-                                <img class="hover" src="assets/images/geophysics-1.svg" alt="">
-                            </div>
-
-                            <h5>Evaluation Methods</h5>
-                        </a>
-                    </div>
-
-                    <div class="discipline-content">
-                        <a href="/course-library/?filters=geoenergy-transition" title="GeoEnergy Transition">
-                            <div class="image">
-                                <img src="https://geologica.saydev.co.uk/wp-content/uploads/2024/01/g165.svg" alt="">
-                                <img class="hover" src="assets/images/geophysics-1.svg">
-                            </div>
-
-                            <h5>GeoEnergy Transition</h5>
-                        </a>
-                    </div>
-
-                    <div class="discipline-content">
-                        <a href="/course-library/?filters=geonuclear" title="Geonuclear">
-                            <div class="image">
-                                <img src="https://geologica.saydev.co.uk/wp-content/uploads/2024/01/g4176.svg" alt="">
-                                <img class="hover" src="assets/images/geophysics-1.svg">
-                            </div>
-
-                            <h5>Geonuclear</h5>
-                        </a>
-                    </div>
-
-                    <div class="discipline-content">
-                        <a href="/course-library/?filters=geophysics" title="Geophysics">
-                            <div class="image">
-                                <img src="https://geologica.saydev.co.uk/wp-content/uploads/2024/01/geophysics.svg"
-                                    alt="">
-                                <img class="hover" src="assets/images/geophysics-1.svg" alt="">
-                            </div>
-
-                            <h5>Geophysics</h5>
-                        </a>
-                    </div>
-
-                    <div class="discipline-content">
-                        <a href="/course-library/?filters=geothermal-resource" title="Geothermal Resource">
-                            <div class="image">
-                                <img src="https://geologica.saydev.co.uk/wp-content/uploads/2024/01/g165.svg" alt="">
-                                <img class="hover" src="assets/images/geophysics-1.svg">
-                            </div>
-
-                            <h5>Geothermal Resource</h5>
-                        </a>
-                    </div>
-
-                    <div class="discipline-content">
-                        <a href="/course-library/?filters=hydrogen" title="Hydrogen">
-                            <div class="image">
-                                <img src="https://geologica.saydev.co.uk/wp-content/uploads/2024/01/Carbon-Capture-and-Storage.svg"
-                                    alt="">
-                                <img class="hover" src="assets/images/geophysics-1.svg" alt="">
-                            </div>
-
-                            <h5>Hydrogen</h5>
-                        </a>
-                    </div>
-
-                    <div class="discipline-content">
-                        <a href="/course-library/?filters=mining" title="Mining">
-                            <div class="image">
-                                <img src="https://geologica.saydev.co.uk/wp-content/uploads/2024/01/Critical-Minerals.svg"
-                                    alt="">
-                                <img class="hover" src="assets/images/geophysics-1.svg" alt="">
-                            </div>
-
-                            <h5>Mining</h5>
-                        </a>
-                    </div>
-
-                    <div class="discipline-content">
-                        <a href="/course-library/?filters=multi-disciplinary" title="Multi-disciplinary">
-                            <div class="image">
-                                <img src="https://geologica.saydev.co.uk/wp-content/uploads/2024/01/cross-functional.svg"
-                                    alt="">
-                                <img class="hover" src="assets/images/geophysics-1.svg" alt="">
-                            </div>
-
-                            <h5>Multi-disciplinary</h5>
-                        </a>
-                    </div>
-
-                    <div class="discipline-content">
-                        <a href="/course-library/?filters=renewables" title="Renewables">
-                            <div class="image">
-                                <img src="https://geologica.saydev.co.uk/wp-content/uploads/2024/01/renewable-energy-1.svg"
-                                    alt="">
-                                <img class="hover" src="assets/images/geophysics-1.svg" alt="">
-                            </div>
-
-                            <h5>Renewables</h5>
-                        </a>
-                    </div>
-
-                    <div class="discipline-content">
-                        <a href="/course-library/?filters=reservoir-characterization"
-                            title="Reservoir Characterization">
-                            <div class="image">
-                                <img src="https://geologica.saydev.co.uk/wp-content/uploads/2024/01/analysis-1.svg"
-                                    alt="">
-                                <img class="hover" src="assets/images/geophysics-1.svg">
-                            </div>
-
-                            <h5>Reservoir Characterization</h5>
-                        </a>
-                    </div>
-
-                    <div class="discipline-content">
-                        <a href="/course-library/?filters=resource-plays" title="Resource Plays">
-                            <div class="image">
-                                <img src="https://geologica.saydev.co.uk/wp-content/uploads/2024/01/teamwork2-1.svg"
-                                    alt="">
-                                <img class="hover" src="assets/images/geophysics-1.svg" alt="">
-                            </div>
-
-                            <h5>Resource Plays</h5>
-                        </a>
-                    </div>
-
-                    <div class="discipline-content">
-                        <a href="/course-library/?filters=socio-economic" title="Socio-Economic">
-                            <div class="image">
-                                <img src="https://geologica.saydev.co.uk/wp-content/uploads/2024/01/economic.svg"
-                                    alt="">
-                                <img class="hover" src="assets/images/geophysics-1.svg" alt="">
-                            </div>
-
-                            <h5>Socio-Economic</h5>
-                        </a>
-                    </div>
-
-                    <div class="discipline-content">
-                        <a href="/course-library/?filters=structural-geology" title="Structural Geology">
-                            <div class="image">
-                                <img src="https://geologica.saydev.co.uk/wp-content/uploads/2024/01/earth-1.svg" alt="">
-                                <img class="hover" src="assets/images/geophysics-1.svg">
-                            </div>
-
-                            <h5>Structural Geology</h5>
-                        </a>
-                    </div>
-
-
+                       <?php }
+                       
+                        
+                    } 
+                    ?>
                 </div>
             </div>
         </section>

@@ -44,6 +44,8 @@ get_header();
         <!--************** product section start -->
         <section class="sp-t sp-b upcoming-sec left-bg to-right-bg position position-relative">
             <div class="container">
+     
+ 
                 <div class="sec-head">
                     <div class="head-wrapper">
                         <h5 class="head-line c-primary">Thermal and Cable Solutions</h5>
@@ -52,8 +54,12 @@ get_header();
                     <a class="btn tbtn-secondary" href="/schedule/" title="Explore More">
                         Explore More </a>
                 </div>
-                <div class="courses-posts-row p-0">
+                <div class="courses-posts-row p-0  position-relative">
+                     <!--************** comming soon overlay   **************-->
+                        <div class="coming-soon-overlay"> comming soon</div>
+                    <!--************** comming soon overlay   **************-->
                     <div class="courses-posts-slider slider-wrapper">
+        
 
                     <?php
                         $args = array(

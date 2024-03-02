@@ -637,6 +637,22 @@ html {
     --bs-gutter-y: 30px;
   }
   
+.coming-soon-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: #ffffffd6;
+  z-index: 9;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  font-weight: 600;
+  font-family: "Poppins";
+  text-transform: capitalize;
+  height: 100%;
+  width: 100%;
+}
   /************* text wrapper start  ************/
   @media (min-width: 1400px) {
     .text-wrapper.fonts-2 {
